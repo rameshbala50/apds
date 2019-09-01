@@ -75,14 +75,6 @@ for no_of_record in no_of_records:
     process_file.write(',Input File Name')
     process_file.write(',Bloom Filter Name\n')
 
-    # process_file.write('No of Input Records, Est. Elements Planned, Est. Elements Added(BF)')
-    # process_file.write(',Estimated Unique Elements, False +ve Rate Planned, False +ve Rate(Actual), Bit Array Size')
-    # process_file.write(',Hash Functions, Memory Size(Bits), Export File Size(Bytes)')
-    # process_file.write(',Stocks Added, Check Stock Count, Probably Traded Count, Traded Count')
-    # process_file.write(',False +ve Traded Count, Definitely Not Traded Count')
-    # process_file.write(',BF Create Time, Prg Start Time, Prg End Time')
-    # process_file.write(',Input File Name, Bloom Filter Name\n')
-
     for est_element in est_elements:
         for false_positive_rate in false_positive_rates:
             timenow = datetime.datetime.now()
