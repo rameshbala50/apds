@@ -43,7 +43,6 @@ phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
 phd_data_dir = phd_dir + "data/"
 proj_dir = phd_dir + "apds/stock/"
 proj_data_dir = phd_data_dir + "stock/"
-#proj_temp_dir = phd_dir + "apds/temp/"
 
 process_filename = proj_dir + stock_etf + time_interval  + "_bf_process_" + str(dateval) + ".csv"
 process_file = open(process_filename, "w")
@@ -80,7 +79,7 @@ for no_of_record in no_of_records:
             timenow = datetime.datetime.now()
             bf_starttime =  str(timenow.strftime("%x"))+ ' ' + str((timenow.strftime("%X")))
             #stock_trade_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_R" + str(no_of_record) + ".csv"
-            stock_trade_filename = proj_data_dir + "preprocessed/" + stock_etf + "_trade_" + time_interval + "_R15000000.csv"
+            stock_trade_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_R15000000.csv"
 
             stock_trade_file = open(stock_trade_filename,"r")
             stock_trade_lines = csv.reader(stock_trade_file, delimiter=',', quoting=csv.QUOTE_ALL, skipinitialspace=True)

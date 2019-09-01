@@ -13,23 +13,21 @@ current_time = datetime.datetime.now()
 prg_starttime = time.process_time()
 print ('Program Start Time: ' + str(current_time.strftime("%x")) + ' ' + str((current_time.strftime("%X"))))
 
-#time_interval = "5min"
+time_interval = "5min"
 #time_interval = "hourly"
-time_interval = "daily"
+#time_interval = "daily"
 
 stock_etf = "stock"
 #stock_etf = "etf"
 
-#no_of_records = [1000,2000,3000]
-#no_of_records = [2000000,4000000,4000000,6000000,8000000,10000000,12000000,14000000,15000000]
-
-no_of_records = [1000000,2000000,3000000,4000000,5000000,6000000,7000000,8000000,9000000,10000000,11000000,12000000,13000000,14000000,15000000]
-#no_of_records = [100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000]
-#no_of_records = [1000000,2000000,3000000,4000000,5000000,6000000,7000000]
+no_of_records = [100]
+#no_of_records = [15000000]
 
 phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
+phd_data_dir = phd_dir + "data/"
+proj_dir = phd_dir + "apds/stock/"
+proj_data_dir = phd_data_dir + "stock/"
 source_data_dir = phd_dir + "data/stock/" + time_interval + "/" + stock_etf + "/"
-phd_data_dir = phd_dir + "data/stock/preprocessed/"
 
 data_files = []
 date_format_str = '%Y-%m-%d'  # The format
@@ -41,9 +39,11 @@ for root, dirs, files in os.walk(source_data_dir):
         #print(filename)
 
 for no_of_record in no_of_records:
-    stock_trade_filename = phd_data_dir + stock_etf + "_trade_" + time_interval + "_R" + str(no_of_record) + ".csv"
+    stock_trade_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_R" + str(no_of_record) + ".csv"
     stock_trade_file = open(stock_trade_filename, "w")
     stock_trade_file.write('stock_symbol, trade_date, trade_time, open price, high, low, close price, volume, open interest\n')
+
+    print('stock_trade_filename',stock_trade_filename)
 
     stock_trade_record_count = 0
     for data_file in data_files:

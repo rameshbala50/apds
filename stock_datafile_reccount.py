@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Author Ramesh, Created Aug 27, 2019
 # Pre-Process Step
-# Program to count number of records for various datasets
+# Program to count number of records for various stock datasets
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import time;
@@ -21,13 +21,16 @@ time_interval = "5min"
 stock_etf = "stock"
 #stock_etf = "etf"
 
-phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
-source_data_dir = phd_dir + "data/stock/" + time_interval + "/" + stock_etf + "/"
-phd_data_dir = phd_dir + "data/stock/processed/"
-phd_data_dir = phd_dir + "data/stock/"
 
-#source_data_dir = "C:/temp/ETFs PriceVol/"
-#source_data_dir = "C:/temp/Stocks PriceVol/"
+#phd_data_dir = phd_dir + "data/stock/processed/"
+#phd_data_dir = phd_dir + "data/stock/"
+
+
+phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
+phd_data_dir = phd_dir + "data/"
+proj_dir = phd_dir + "apds/stock/"
+proj_data_dir = phd_data_dir + "stock/"
+source_data_dir = phd_dir + "data/stock/" + time_interval + "/" + stock_etf + "/"
 
 source_data_files = []
 date_format_str = '%Y-%m-%d'  # The format
@@ -38,11 +41,11 @@ for root, dirs, files in os.walk(source_data_dir):
         source_data_files.append(filename)
         #print(filename)
 
-stock_trade_symbol_filename = phd_data_dir + stock_etf + "_trade_" + time_interval + "_symbols.csv"
+stock_trade_symbol_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_symbols.csv"
 stock_trade_symbol_file = open(stock_trade_symbol_filename, "w")
 stock_trade_symbol_file.write("Stock Symbol, Frequency Count\n")
 
-stock_trade_date_filename   = phd_data_dir + stock_etf + "_trade_" + time_interval + "_dates.csv"
+stock_trade_date_filename   = proj_data_dir + stock_etf + "_trade_" + time_interval + "_dates.csv"
 stock_trade_date_file       = open(stock_trade_date_filename, "w")
 stock_trade_date_file.write("Trade Date, Frequency Count\n")
 

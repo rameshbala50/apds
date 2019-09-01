@@ -30,16 +30,16 @@ no_of_records = [1000,2000,3000]
 #no_of_records = [100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000]
 #no_of_records = [1000000,2000000,3000000,4000000,5000000,6000000,7000000]
 
-#widths = [1000]
-widths = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
+widths = [1000]
+#widths = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
 
-#depths = [4]
-depths = [2,4,6,8,10]
+depths = [4]
+#depths = [2,4,6,8,10]
 
 phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
-phd_data_dir = phd_dir + "data/stock/preprocessed/"
+phd_data_dir = phd_dir + "data/"
 proj_dir = phd_dir + "apds/stock/"
-#proj_dir = phd_dir + "apds/temp/"
+proj_data_dir = phd_data_dir + "stock/"
 
 process_filename = proj_dir + stock_etf + time_interval  + "_cms_process_" + str(dateval) + ".csv"
 process_file = open(process_filename, "w")
@@ -53,7 +53,8 @@ for no_of_record in no_of_records:
         for width in widths:
             timenow = datetime.datetime.now()
             cms_starttime =  str(timenow.strftime("%x"))+ ' ' + str((timenow.strftime("%X")))
-            stock_trade_filename = phd_data_dir + stock_etf + "_trade_" + time_interval + "_R" + str(no_of_record) + ".csv"
+            #stock_trade_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_R" + str(no_of_record) + ".csv"
+            stock_trade_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_R15000000.csv"
             stock_trade_file = open(stock_trade_filename,"r")
             stock_trade_lines = csv.reader(stock_trade_file, delimiter=',', quoting=csv.QUOTE_ALL, skipinitialspace=True)
             next(stock_trade_lines)
@@ -74,6 +75,7 @@ for no_of_record in no_of_records:
 
             for stock_trade_line in stock_trade_lines:
                 stock_trade_record_count = stock_trade_record_count + 1
+                if stock_trade_record_count > no_of_record: break
                 stock_symbol = stock_trade_line[0].strip()
 
                 sketch_starttime = time.process_time()
