@@ -23,7 +23,7 @@ time_interval = "daily"
 stock_etf = "stock"
 #stock_etf = "etf"
 
-no_of_records = [800]
+no_of_records = [1000000]
 #no_of_records = [1000]
 #no_of_records = [1000,2000,3000]
 #no_of_records = [2000000,4000000,6000000,8000000,10000000]
@@ -107,6 +107,7 @@ for no_of_record in no_of_records:
                 memadd = stock_exists_bf.add(stock_symbol)
                 bfadd_endtime = time.process_time()
                 bfadd_time = bfadd_time + (bfadd_endtime - bfadd_starttime)
+                print('stock_trade_record_count:',stock_trade_record_count,' bfadd_starttime:',bfadd_starttime,' bfadd_endtime:',bfadd_endtime,' bfadd_time:',bfadd_time)
 
                 if stock_symbol not in stock_symbol_dist.keys():
                     #print('Added Unique Stock:',stock_symbol)

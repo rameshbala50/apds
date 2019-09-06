@@ -13,9 +13,9 @@ current_time = datetime.datetime.now()
 prg_starttime = time.process_time()
 print ('Program Start Time: ' + str(current_time.strftime("%x")) + ' ' + str((current_time.strftime("%X"))))
 
-time_interval = "5min"
+#time_interval = "5min"
 #time_interval = "hourly"
-#time_interval = "daily"
+time_interval = "daily"
 
 stock_etf = "stock"
 #stock_etf = "etf"
@@ -31,6 +31,7 @@ source_data_dir = phd_dir + "data/stock/" + time_interval + "/" + stock_etf + "/
 
 data_files = []
 date_format_str = '%Y-%m-%d'  # The format
+stocks_to_filter = ['aapl', 'ibm', 'msft']
 
 # Create list of files to be processed
 for root, dirs, files in os.walk(source_data_dir):
@@ -87,6 +88,9 @@ for no_of_record in no_of_records:
                 stock_close_price = str(stock_line[4]).strip()
                 stock_volume_price = str(stock_line[5]).strip()
                 stock_openinterest_price = str(stock_line[6]).strip()
+
+            #if stock_symbol not in stocks_to_filter: continue
+            #if stock_trade_date != '2017-11-29': continue
 
             stock_trade_file.write(stock_symbol + ',' + stock_trade_date + ',' + stock_trade_time)
             stock_trade_file.write(',' + stock_open_price + ',' + stock_high_price)
