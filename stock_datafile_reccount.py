@@ -14,17 +14,12 @@ dateval = current_time.strftime("%y") + current_time.strftime("%d") + current_ti
 prg_starttime = time.process_time()
 print ('Program Start Time: ' + str(current_time.strftime("%x")) + ' ' + str((current_time.strftime("%X"))))
 
-time_interval = "5min"
+#time_interval = "5min"
 #time_interval = "hourly"
-#time_interval = "daily"
+time_interval = "daily"
 
 stock_etf = "stock"
 #stock_etf = "etf"
-
-
-#phd_data_dir = phd_dir + "data/stock/processed/"
-#phd_data_dir = phd_dir + "data/stock/"
-
 
 phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
 phd_data_dir = phd_dir + "data/"
@@ -41,11 +36,11 @@ for root, dirs, files in os.walk(source_data_dir):
         source_data_files.append(filename)
         #print(filename)
 
-stock_trade_symbol_filename = proj_data_dir + stock_etf + "_trade_" + time_interval + "_symbols.csv"
+stock_trade_symbol_filename = proj_data_dir + "reccount/" + stock_etf + time_interval + "_trade_symbols.csv"
 stock_trade_symbol_file = open(stock_trade_symbol_filename, "w")
 stock_trade_symbol_file.write("Stock Symbol, Frequency Count\n")
 
-stock_trade_date_filename   = proj_data_dir + stock_etf + "_trade_" + time_interval + "_dates.csv"
+stock_trade_date_filename   = proj_data_dir + "reccount/" + stock_etf + time_interval + "_trade_dates.csv"
 stock_trade_date_file       = open(stock_trade_date_filename, "w")
 stock_trade_date_file.write("Trade Date, Frequency Count\n")
 

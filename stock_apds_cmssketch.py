@@ -24,22 +24,22 @@ time_interval = "daily"
 stock_etf = "stock"
 #stock_etf = "etf"
 
-no_of_records = [8000000,9000000]
-#no_of_records = [100]
+#no_of_records = [8000000,9000000]
+no_of_records = [100]
 #no_of_records = [1000000,2000000,3000000,4000000,5000000,6000000,7000000,8000000,9000000,10000000,11000000,12000000,13000000,14000000,15000000]
 
-#widths = [1000]
-widths = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
+widths = [1000]
+#widths = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000]
 
-#depths = [2]
-depths = [2,4,6,8,10]
+depths = [2]
+#depths = [2,4,6,8,10]
 
 phd_dir = "C:/My Cloud/GoogleDrive/1 PhD/"
 phd_data_dir = phd_dir + "data/"
 proj_dir = phd_dir + "apds/stock/"
 proj_data_dir = phd_data_dir + "stock/"
 
-process_filename = proj_dir + stock_etf + time_interval  + "_apds_apds_process_" + str(dateval) + ".csv"
+process_filename = proj_dir + stock_etf + time_interval  + "_apds_cms_process_" + str(dateval) + ".csv"
 process_file = open(process_filename, "w")
 
 for no_of_record in no_of_records:
